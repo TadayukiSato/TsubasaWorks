@@ -100,17 +100,6 @@ function showAlertDelNg(){
 	<a style="font-size: 1rem; align-items: center;" class="btn btn-outline-primary" href="SodanServlet?vew_action=new&sodan_id=" role="button">新規相談</a>
 </nav>
 
-<%--
-<% for(Sodan sodan : sodanList) {%>
- <p><%=sodan.getKainushiName() %>：<%=sodan.getBirdName() %></p>
-<% } %>
-
-<% for (Sodan sodan : sodanList) {%>
-	<p><%=sodan.getContent()%></p>
-<% } %>
-<p>${cntAll}</p>
---%>
-
 <form id="frm" action="SodanServlet" name="sodan_main_form" method="post">
 
 	<input hidden id="post_action" name="post_action" value="${extCon.post_action}">

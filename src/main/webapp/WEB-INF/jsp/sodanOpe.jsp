@@ -78,10 +78,7 @@
 		</c:choose>	
 	</span>
 </nav>
-<!--
-<p>${sodan.sodanId}：${dbAction.dbAction}</p>
-<p>${sodan.kainushiName}：${sodan.upFilePath}</p>
--->
+
 <!--＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*
 * bootstrap5 フォームバリデーション
 *	JavaScriptにて制御
@@ -184,7 +181,6 @@
 				<div class="input-group">
 					<span class="input-group-text" id="sodan_date_label">相談日</span>
 					<input	<c:if test="${dbAction.dbAction == 'dtl' || dbAction.dbAction == 'del'}">disabled</c:if> id="sodan_date" name="sodan_date" 	type="date" class="disabled_color form-control" value="${sodan.sodanDate}" aria-describedby="sodan_date_label" required />
-					<!-- <div class="invalid-feedback">相談日は入力必須項目です！</div> -->
 					<div class="valid-feedback">ok!</div>
 					<div class="invalid-feedback">相談日は入力必須項目です！</div>
 				</div>
@@ -411,7 +407,6 @@
 			</c:when>
 			<c:when test="${dbAction.dbAction == 'new'}">
 				<div class="row mt-1 ms-1">
-					<!-- <button style="width: 80px;" type="button" class="btn btn-primary ms-1" data-bs-toggle="modal" data-bs-target="#ope_modal">登録</button> -->
 					<input style="width: 80px;" type="submit" class="btn btn-primary ms-1" value="登録">
 					<input style="width: 80px;" type="button"class="btn btn-secondary ms-1" value="クリア" onclick="window.location.reload();">
 				</div>
@@ -421,7 +416,6 @@
 			</c:when>
 			<c:when test="${dbAction.dbAction == 'upd'}">
 				<div class="row mt-1 ms-1">
-					<!-- <button style="width: 80px;" type="button" class="btn btn-primary ms-1" data-bs-toggle="modal" data-bs-target="#ope_modal">更新</button> -->
 					<input style="width: 80px;" type="submit" class="btn btn-primary ms-1" value="更新">
 				</div>
 				<div class="row mt-1 ms-1">
@@ -439,56 +433,23 @@
 		</c:choose>	
 	</div>
 
-<!-- ↓↓ Modal ↓↓ -->
+<!-- ↓↓ 削除確認Modal ↓↓ -->
 	<div class="modal fade" id="ope_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="opeModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-				<h1 class="modal-title fs-5" id="opeModalLabel">
-					<c:choose>
-						<c:when test="${dbAction.dbAction == 'new'}">
-							登録確認
-						</c:when>
-						<c:when test="${dbAction.dbAction == 'upd'}">
-							更新確認
-						</c:when>
-						<c:when test="${dbAction.dbAction == 'del'}">
-							削除確認
-						</c:when>
-					</c:choose>	
-				</h1>
+				<h1 class="modal-title fs-5" id="opeModalLabel">削除確認</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<c:choose>
-					<c:when test="${dbAction.dbAction == 'new'}">
-						<p>データを登録してよろしいですか？</p>
-					</c:when>
-					<c:when test="${dbAction.dbAction == 'upd'}">
-						<p>データを更新してよろしいですか？</p>
-					</c:when>
-					<c:when test="${dbAction.dbAction == 'del'}">
-						<p>データを削除してよろしいですか？</p>
-					</c:when>
-				</c:choose>	
+				<p>データを削除してよろしいですか？</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-				<c:choose>
-					<c:when test="${dbAction.dbAction == 'new'}">
-						<input type="submit" class="btn btn-primary" value="登録実行">
-					</c:when>
-					<c:when test="${dbAction.dbAction == 'upd'}">
-						<input type="submit" class="btn btn-primary" value="更新実行">
-					</c:when>
-					<c:when test="${dbAction.dbAction == 'del'}">
-						<input type="submit" class="btn btn-danger" value="削除実行">
-					</c:when>
-				</c:choose>	
+				<input type="submit" class="btn btn-danger" value="削除実行">
 			</div>
 		</div>
 	</div>
-
 <!-- ↑↑ Modal ↑↑ -->
 
 </form>
